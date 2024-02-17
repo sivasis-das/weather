@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import CurrentWeather from "./CurrentWeather";
-import { API_KEY } from "../WeatherService/weatherService";
+
 
 const CurrentWeatherProvider = ({ children }) => {
   const [current, setCurrent] = useState();
   const [geoLocation, setGeoLocation] = useState({});
   const [locationKey, setLocationKey] = useState("");
-  
+
   const [isMetric, setIsMetric] = useState(true);
   const [cityName, setCityName] = useState("");
   const [error, setError] = useState(false);
@@ -34,7 +34,6 @@ const CurrentWeatherProvider = ({ children }) => {
     function error() {
       setError((error) => !error);
       throw new Error("please allow browser to fetch ur location");
-      
     }
   }, []);
 
@@ -44,15 +43,16 @@ const CurrentWeatherProvider = ({ children }) => {
       // console.log("i'm in fetching location key");
       async function fetchData() {
         try {
-          // console.log("api1", API_KEY);
           // console.log(geoLocation);
           // console.log(geoLocation.lat);
           const response = await fetch(
-            `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${API_KEY}&q=${geoLocation.lat},${geoLocation.long}&toplevel=true`
+            `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${
+              import.meta.env.VITE_API_KEY
+            }&q=${geoLocation.lat},${geoLocation.long}&toplevel=true`
           );
           const data = await response.json();
-          setCityName(data["EnglishName"])
-          // console.log(API_KEY);
+          setCityName(data["EnglishName"]);
+
           console.log("location key is in context ", locationKey.length);
           setLocationKey(data["Key"]);
         } catch (error) {
@@ -76,7 +76,6 @@ const CurrentWeatherProvider = ({ children }) => {
         setIsMetric,
         cityName,
         setCityName,
-        
       }}
     >
       {children}

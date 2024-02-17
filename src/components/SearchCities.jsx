@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { IoMdSettings } from "react-icons/io";
-import { API_KEY } from "../WeatherService/weatherService";
+
 import CurrentWeather from "../context/CurrentWeather";
 
 function SearchCities({ setShowSettings, showSettings }) {
@@ -18,7 +18,7 @@ function SearchCities({ setShowSettings, showSettings }) {
         
         alert("please enter a city name!");
       }
-      const response = await fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${API_KEY}&q=${city}&details=false`);
+      const response = await fetch(`http://dataservice.accuweather.com/locations/v1/cities/search?apikey=${import.meta.env.VITE_API_KEY}&q=${city}&details=false`);
 
       const result = await response.json();
       console.log(result[0]["Key"]);

@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import Options from './Options'
+
 import CurrentWeather from '../context/CurrentWeather'
 
 

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 // import { topcities } from "../data/topcities";
-import { API_KEY } from "../WeatherService/weatherService";
+
 import CurrentWeather from "../context/CurrentWeather";
 
 function TopCities() {
@@ -18,10 +18,14 @@ function TopCities() {
     } else {
       async function fetchTopCities() {
         // console.log("fetching the list of cities...");
-        const response = await fetch (`http://dataservice.accuweather.com/currentconditions/v1/topcities/50?apikey=${API_KEY}`)
+        const response = await fetch(
+          `http://dataservice.accuweather.com/currentconditions/v1/topcities/50?apikey=${
+            import.meta.env.VITE_API_KEY
+          }`
+        );
         const data = await response.json();
-        sessionStorage.setItem("cities", JSON.stringify(data))
-        
+        sessionStorage.setItem("cities", JSON.stringify(data));
+
         setCitiesList(data);
       }
       fetchTopCities();

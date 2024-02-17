@@ -9,16 +9,12 @@ import { IoMdSettings } from "react-icons/io";
 import Settings from "./components/Settings";
 import { useContext, useEffect, useState } from "react";
 
-import CurrentWeather from "./context/CurrentWeather";
-import { API_KEY } from "./WeatherService/weatherService";
-
-
 function App() {
   const [options, setOptions] = useState("weather");
   const [showSettings, setShowSettings] = useState(false);
-  
+
   // const { error } = useContext(CurrentWeather);
-  
+
   console.log("first");
   //  sessionStorage.clear()
 
@@ -27,7 +23,6 @@ function App() {
   const showUI = (e) => {
     // console.log("optionData", e.target.id);
     setOptions(e.target.id);
-    
   };
 
   const renderFooter = () => {
