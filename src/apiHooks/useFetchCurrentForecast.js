@@ -7,7 +7,7 @@ export const useFetchCurrentForecast = ({ locationKey, isMetric }) => {
   const [current, setCurrent] = useState([]);
 
   const { data, isLoading, isSuccess } = useFetch(
-    `http://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${
+    `https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${
       import.meta.env.VITE_API_KEY
     }&details=true`,
     `${locationKey}`,

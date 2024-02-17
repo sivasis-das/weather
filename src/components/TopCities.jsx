@@ -19,7 +19,7 @@ function TopCities() {
       async function fetchTopCities() {
         // console.log("fetching the list of cities...");
         const response = await fetch(
-          `http://dataservice.accuweather.com/currentconditions/v1/topcities/50?apikey=${
+          `https://dataservice.accuweather.com/currentconditions/v1/topcities/50?apikey=${
             import.meta.env.VITE_API_KEY
           }`
         );

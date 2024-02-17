@@ -46,7 +46,7 @@ const CurrentWeatherProvider = ({ children }) => {
           // console.log(geoLocation);
           // console.log(geoLocation.lat);
           const response = await fetch(
-            `http://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${
+            `https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=${
               import.meta.env.VITE_API_KEY
             }&q=${geoLocation.lat},${geoLocation.long}&toplevel=true`
           );

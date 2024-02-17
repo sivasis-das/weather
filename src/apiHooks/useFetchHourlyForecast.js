@@ -7,7 +7,7 @@ export const useFetchHourlyForecast = ({ locationKey, isMetric }) => {
   const [hourly, setHourly] = useState([]);
 
   const { data, isLoading, isSuccess } = useFetch(
-    `http://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${locationKey}?apikey=${
+    `https://dataservice.accuweather.com/forecasts/v1/hourly/12hour/${locationKey}?apikey=${
       import.meta.env.VITE_API_KEY
     }&metric=${isMetric}`,
     `${locationKey} hourly ${isMetric}`,
